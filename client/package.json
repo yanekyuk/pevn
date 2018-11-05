@@ -1,0 +1,41 @@
+{
+  "name": "client",
+  "version": "0.0.1-alpha",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "axios": "^0.18.0",
+    "connect-history-api-fallback": "1.5.0",
+    "dotenv": "6.0.0",
+    "express": "^4.16.3",
+    "fuse.js": "3.2.1",
+    "lodash": "^4.17.10",
+    "marked": "0.4.0",
+    "moment": "2.22.2",
+    "register-service-worker": "^1.0.0",
+    "slug": "^0.9.1",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1",
+    "vuelidate": "^0.7.4",
+    "vuetify": "^1.0.19",
+    "vuex": "^3.0.1",
+    "vuex-router-sync": "^5.0.0"
+  },
+  "devDependencies": {
+    "@babel/polyfill": "^7.0.0-beta.49",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.5",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.5",
+    "@vue/cli-plugin-pwa": "^3.0.0-rc.5",
+    "@vue/cli-service": "^3.0.0-rc.5",
+    "@vue/eslint-config-standard": "^3.0.0-rc.5",
+    "node-sass": "^4.9.0",
+    "sass-loader": "^7.0.1",
+    "vue-cli-plugin-vuetify": "^0.1.6",
+    "vue-template-compiler": "^2.5.16"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "hicerik-server",
+  "description": "RESTFul API server for Hiçerik",
+  "version": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/nodemon/bin/nodemon.js src/app.js --exec 'npm run lint && node'",
+    "lint": "./node_modules/.bin/eslint src/*.js"
+  },
+  "keywords": [],
+  "author": "Yanek Yük",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://git.heroku.com/hicerik-server.git"
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "^3.5.1",
+    "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "joi": "^13.4.0",
+    "jsonwebtoken": "^8.3.0",
+    "moment": "^2.22.2",
+    "morgan": "^1.9.0",
+    "nodemailer": "^4.6.8",
+    "nodemon": "^1.18.1",
+    "pg": "^7.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.38.0",
+    "sequelize-cli": "^4.0.0",
+    "slug": "^0.9.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "eslint-config-standard": "^12.0.0-alpha.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "faker": "^4.1.0",
+    "sqlite3": "^4.0.1"
+  }
+}
