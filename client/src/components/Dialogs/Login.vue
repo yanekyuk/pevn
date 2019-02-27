@@ -30,9 +30,6 @@
 
 <script>
 import AuthService from '@/services/AuthService'
-import UserService from '@/services/UserService'
-import LikeService from '@/services/LikeService'
-import SubscriptionService from '@/services/SubscriptionService'
 
 export default {
   name: 'LoginDialog',
@@ -81,7 +78,7 @@ export default {
           this.$store.dispatch('setAlert', { type: 'error', text: 'Giriş başarısız' })
         }
       } catch (error) {
-          console.log(error)
+        console.log(error)
         this.$store.dispatch('toggleLoginDialog')
         localStorage.removeItem('token')
         this.$store.dispatch('setAlert', { type: 'error', text: 'Giriş başarısız' })

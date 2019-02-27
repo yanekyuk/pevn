@@ -21,6 +21,6 @@ export default new Router({
     {
       path: `/p/:token`,
       name: 'passwordReset'
-    },
+    }
   ]
 })

@@ -57,7 +57,7 @@ export default {
         this.$store.dispatch('setAlert', { type: 'success', text: 'Parolanız başarıyla değiştirildi.' })
         this.$store.dispatch('toggleNewPasswordDialog')
       }).catch(error => {
-        this.$store.dispatch('setAlert', { type: 'error', text: 'Parola değiştirme başarısız.' })
+        this.$store.dispatch('setAlert', { type: 'error', text: 'Parola değiştirme başarısız.', error: error })
       })
     }
   }

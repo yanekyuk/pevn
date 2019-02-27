@@ -1,16 +1,16 @@
 <template>
   <v-app :dark="$store.state.settings.dark > 0">
-    
+
     <!-- TOP -->
     <v-progress-linear class="my-0" height="3" :indeterminate="$store.state.loading" v-model="progress"></v-progress-linear>
-    
+
     <!-- DIALOGS -->
     <register-dialog v-if="dialogs.auth.register" />
     <login-dialog v-if="dialogs.auth.login" />
     <new-password-dialog v-if="dialogs.auth.newPassword" />
     <account-settings-dialog v-if="dialogs.auth.settings" />
     <alert v-if="$store.state.alert"/>
-    
+
     <!-- LANDING -->
     <v-container  fluid :grid-list-lg="!$store.state.mobile" :grid-list-xs="$store.state.mobile"
                   class="pt-2" :class="$store.state.mobile ? 'px-0' : ''">
@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import Alert from '@/components/dialogs/Alert.vue'
+import Alert from '@/components/Dialogs/Alert'
 import AuthService from './services/AuthService.js'
 
 import {LoginDialog, RegisterDialog, NewPasswordDialog, AccountSettingsDialog} from '@/components/Dialogs'
@@ -67,7 +67,7 @@ export default {
         this.verifyAuth().then(() => {
           this.$store.dispatch('setAlert', { type: 'success', text: `Hoşgeldin ${this.auth.username}` })
         }).catch(error => {
-          this.$store.dispatch('setAlert', { type: 'error', text: 'Giriş yapılamadı!' })
+          this.$store.dispatch('setAlert', { type: 'error', text: 'Giriş yapılamadı!', error: error })
         })
       } else {
         this.$store.dispatch('setAlert', { type: 'success', text: 'Çıkış yapıldı!' })
@@ -77,19 +77,19 @@ export default {
   methods: {
     async verifyAuth () {
       await AuthService.verify().then(async auth => {
-          this.$store.dispatch('setSettings', {
-            dark: auth.data.settings.dark,
-            nsfw: auth.data.settings.nsfw,
-            spoiler: auth.data.settings.spoiler,
-            colorization: auth.data.settings.colorization
-          })
-          await this.calculateScore(auth.data).then(response => {
-            var result = Object.assign(auth.data, response)
-            this.$store.dispatch('setAuth', result)
-          })
+        this.$store.dispatch('setSettings', {
+          dark: auth.data.settings.dark,
+          nsfw: auth.data.settings.nsfw,
+          spoiler: auth.data.settings.spoiler,
+          colorization: auth.data.settings.colorization
+        })
+        await this.calculateScore(auth.data).then(response => {
+          var result = Object.assign(auth.data, response)
+          this.$store.dispatch('setAuth', result)
+        })
       }).catch(error => {
         localStorage.clear()
-        this.$store.dispatch('setAlert', { type: 'error', text: 'Bir sorun oldu. Yeniden giriş yapmanız gerekmektedir.' })
+        this.$store.dispatch('setAlert', { type: 'error', text: 'Bir sorun oldu. Yeniden giriş yapmanız gerekmektedir.', error: error })
       })
     },
     async onResize () {
@@ -103,13 +103,13 @@ export default {
         clearTimeout(timeOut)
       }
     },
-    startScrollToTop() {
+    startScrollToTop () {
       this.scrollToTop()
     },
     scrollToTop () {
       var val = document.body.scrollTop || document.documentElement.scrollTop
       if (val > 1) {
-        window.scrollBy(0, -Math.sqrt(val * .125) * 3)
+        window.scrollBy(0, -Math.sqrt(val * 0.125) * 3)
         this.timeoutForScroll(true, 10)
         this.$store.dispatch('setLoading', true)
       } else {
@@ -120,7 +120,7 @@ export default {
         this.$store.dispatch('setLoading', false)
         this.timeoutForScroll(false)
       }
-    },
+    }
   },
   async mounted () {
     // VERIFY LOCAL STORAGE

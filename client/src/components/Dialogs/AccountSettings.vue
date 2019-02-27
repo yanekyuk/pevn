@@ -62,18 +62,18 @@ export default {
   computed: {
     formIsValid () {
       if (this.newPassword) {
-        return ( this.newPasswordConfirm && this.oldPassword )
+        return (this.newPasswordConfirm && this.oldPassword)
       } else {
-        return ( this.email && this.oldPassword )
+        return (this.email && this.oldPassword)
       }
     }
   },
   methods: {
     async register () {
       await AuthService.update(this.$store.state.auth.id, {
-          email: this.email,
-          newPassword: this.newPassword,
-          oldPassword: this.oldPassword
+        email: this.email,
+        newPassword: this.newPassword,
+        oldPassword: this.oldPassword
       }).then(auth => {
         this.$store.dispatch('setAlert', { type: 'success', text: 'Hesabınız güncellendi.' })
         this.$store.dispatch('toggleAccountSettingsDialog')

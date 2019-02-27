@@ -27,11 +27,11 @@
               <v-flex xs12 sm12 md12>
               <v-divider></v-divider>
                 <span class="grey--text darken-1">
-                  Kaydolarak, 
+                  Kaydolarak,
                   <a flat small style="cursor:pointer; font-weight: 600" @click="$store.dispatch('toggleLoginDialog')">gizlilik ilkesi</a>
                    ve
                   <a flat small style="cursor:pointer; font-weight: 600" @click="$store.dispatch('toggleLoginDialog')">içerik ilkesini</a>
-                   okuduğunuzu ve 
+                   okuduğunuzu ve
                   <a flat small style="cursor:pointer; font-weight: 600" @click="$store.dispatch('toggleLoginDialog')">şartları</a>
                    onayladığınızı belirtmiş olursunuz.
                 </span>

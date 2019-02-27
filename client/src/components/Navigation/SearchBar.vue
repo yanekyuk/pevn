@@ -52,7 +52,7 @@ export default {
       var thickVowels = 'aıouAIOU'; var thinVowels = 'eiöüEİÖÜ'
       var hardConsonants = 'çfhkpsştÇFHKPSŞT'; var softConsonants = 'bcdgğjlmnrvyzBCDGĞJLMNRVYZ'
       var add = "'"
-      for(var j = 1; j <= title.length; j++) {
+      for (var j = 1; j <= title.length; j++) {
         if (hardConsonants.indexOf(title.charAt(title.length - j)) !== -1) {
           add += 't'
           j = title.length
@@ -61,16 +61,16 @@ export default {
           j = title.length
         }
       }
-      for(var i = 1; i <= title.length; i++) {
+      for (var i = 1; i <= title.length; i++) {
         if (thickVowels.indexOf(title.charAt(title.length - i)) !== -1) {
-            add += 'a'
-            i = title.length
+          add += 'a'
+          i = title.length
         } else if (thinVowels.indexOf(title.charAt(title.length - i)) !== -1) {
-            add += 'e'
-            i = title.length
+          add += 'e'
+          i = title.length
         }
       }
-      add.length < 3 ? add = ' denilen yerde' : add = add
+      if (add.length < 3) { add = ' denilen yerde' }
       return title + add + ' ara'
     }
   },

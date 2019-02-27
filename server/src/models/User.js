@@ -89,21 +89,21 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   User.associate = models => {
-    User.hasMany(models.Comment, {
-      foreignKey: 'user_id',
-      sourceKey: 'id',
-      as: 'comments'
-    })
-    User.hasMany(models.Post, {
-      foreignKey: 'user_id',
-      sourceKey: 'id',
-      as: 'posts'
-    })
-    User.hasMany(models.Like, {
-      foreignKey: 'user_id',
-      sourceKey: 'id',
-      as: 'likes'
-    })
+    // User.hasMany(models.Comment, {
+    //   foreignKey: 'user_id',
+    //   sourceKey: 'id',
+    //   as: 'comments'
+    // })
+    // User.hasMany(models.Post, {
+    //   foreignKey: 'user_id',
+    //   sourceKey: 'id',
+    //   as: 'posts'
+    // })
+    // User.hasMany(models.Like, {
+    //   foreignKey: 'user_id',
+    //   sourceKey: 'id',
+    //   as: 'likes'
+    // })
     User.hasOne(models.UserSetting, {
       foreignKey: 'user_id',
       sourceKey: 'id',
@@ -114,29 +114,29 @@ module.exports = (sequelize, DataTypes) => {
       sourceKey: 'id',
       as: 'passwordReset'
     })
-    User.hasMany(models.Subscription, {
-      foreignKey: 'user_id',
-      sourceKey: 'id',
-      as: 'subscriptions'
-    })
-    User.hasMany(models.Subscription, {
-      foreignKey: 'subscribable_id',
-      constraints: false,
-      as: 'followers',
-      scope: {
-        subscribable_type: 'user'
-      }
-    })
-    User.belongsToMany(models.Chat, {
-      through: 'UserChat',
-      as: 'chats',
-      foreignKey: 'user_id'
-    })
-    User.belongsToMany(models.Community, {
-      through: 'Moderator',
-      as: 'communities',
-      foreignKey: 'user_id'
-    })
+    // User.hasMany(models.Subscription, {
+    //   foreignKey: 'user_id',
+    //   sourceKey: 'id',
+    //   as: 'subscriptions'
+    // })
+    // User.hasMany(models.Subscription, {
+    //   foreignKey: 'subscribable_id',
+    //   constraints: false,
+    //   as: 'followers',
+    //   scope: {
+    //     subscribable_type: 'user'
+    //   }
+    // })
+    // User.belongsToMany(models.Chat, {
+    //   through: 'UserChat',
+    //   as: 'chats',
+    //   foreignKey: 'user_id'
+    // })
+    // User.belongsToMany(models.Community, {
+    //   through: 'Moderator',
+    //   as: 'communities',
+    //   foreignKey: 'user_id'
+    // })
   }
 
   User.prototype.comparePassword = function (password) {
