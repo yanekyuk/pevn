@@ -5,7 +5,7 @@ This is a template for a pure javascript system. It makes use of 2 different app
 
 ## Security
 
-I'm sure this is not secure at all. I try the patch the vulnerabilities on the go, but I am no expert. If you find any vulnerabilities you can send me an email via [yanekyuksel@gmail.com](mailto:yanekyuksel@gmail.com) or make a push request.
+It is not a maintained project.
 
 ## License
 
